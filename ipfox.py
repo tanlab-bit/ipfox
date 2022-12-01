@@ -1,9 +1,11 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 import smtplib
+import socket
 from email.header import Header
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from time import asctime
-import socket
 
 
 def send_an_email(email_content):  # email_content是一个字符串
@@ -24,34 +26,9 @@ def send_an_email(email_content):  # email_content是一个字符串
     smtpObj.sendmail(mail_sender, mail_receivers, message.as_string())  # 真正发送邮件就是这里
 
 
-"""
-def get_temp_ip(current_ip):
-    temp_ip_json_path = "/var/tmp/ip.json"
-    if not os.path.exists(temp_ip_json_path):
-        print("No {}, dump it.".format(temp_ip_json_path))
-        with open(temp_ip_json_path, 'w') as jo:
-            json.dump(current_ip, jo)
-            return True, current_ip
-
-    else:
-        with open(temp_ip_json_path, 'r') as jo:
-            # jo = json.dumps(jo.text)
-            origin_ip = json.load(jo)
-        if origin_ip == current_ip:
-            print("Current ip {} do not change, no need to send".format(current_ip))
-            return True, current_ip
-        else:
-            print("The ip updated from {} to {}, update it.".format(origin_ip, current_ip))
-            os.remove(temp_ip_json_path)
-            with open(temp_ip_json_path, 'w') as jo:
-                json.dump(current_ip, jo)
-                return True, current_ip
-"""
-
-
 def get_ip():
-    hostname = socket.gethostname()
-    addr_infos = socket.getaddrinfo(hostname, None)
+    # hostname = socket.gethostname()
+    # addr_infos = socket.getaddrinfo(hostname, None)
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     s.connect(("8.8.8.8", 80))
     res = s.getsockname()[0]
@@ -67,11 +44,8 @@ def get_ip():
 
 
 if __name__ == "__main__":
-
     whether_to_send, global_ips = get_ip()
     if whether_to_send:
         send_an_email(global_ips)
     else:
         print("wait and no send")
-
-    # send_an_email("123")
