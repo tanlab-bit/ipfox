@@ -9,12 +9,11 @@ Automatic IP address detection for your server. Requires Python 3.7 and above.
 We follow the Filesystem Hierarchy Standard (FHS) spec:
 
 ```
-installed: /etc/systemd/system/ipfox.service
-
-installed: /usr/local/lib/ipfox/ipfox.py
-installed: /usr/local/etc/ipfox/ipfox.ini
-
-installed: /var/log/ipfox.log
+[*] Installation complete -
+installed: ipfox service unit file: /etc/systemd/system/ipfox.service
+installed: ipfox Python script: /usr/local/lib/ipfox/ipfox.py
+installed: ipfox configuration directory: /usr/local/etc/ipfox
+installed: ipfox sample configuration file: /usr/local/etc/ipfox/ipfox.ini.default
 ```
 
 ## Runtimes
@@ -26,37 +25,28 @@ We assume you have system-wide Python 3 installed to `/usr/bin/python3`.
 Install via script:
 
 ```bash
-sudo ./install.sh
+sudo ./install-ipfox.sh
 ```
 
-The script basically does the following. It first moves the Unit file to `/etc/systemd/system/`.
+The script basically does the following:
+
+- Copies the Unit file to `/etc/systemd/system/`.
+- Copies the Python script to `/usr/local/lib/` under directory `ipfox`.
+- Copies the sample configuration file to `/usr/local/etc/ipfox/` as `ipfox.ini.default`.
+
+Configure the service. Config directory is under `/usr/local/etc/ipfox/`. Copy sample configuration file to `ipfox.ini` and edit it to your needs. The service loads `/usr/local/etc/ipfox/ipfox.ini` by default.
+
+To enable and start the service:
 
 ```bash
-# Copy the unit file
-sudo cp ipfox.service /etc/systemd/system/
-
-# Set the right permissions
-sudo chown root:root /etc/systemd/system/ipfox.service
-sudo chmod 644 /etc/systemd/system/ipfox.service
-```
-
-It then moves the Python script to `/usr/local/lib/` under a separate directory.
-
-```bash
-# Create the directory and copy over the script
-sudo mkdir -p /usr/local/lib/ipfox
-sudo cp ipfox.py /usr/local/lib/ipfox/
-
-# Set the right permissions
-sudo chown root:root /usr/local/lib/ipfox/ipfox.py
-sudo chmod 644 /usr/local/lib/ipfox/ipfox.py
-```
-
-You will need to enable and start the service:
-
-```bash
-# Enable the service
 sudo systemctl enable ipfox
+sudo systemctl start ipfox
+```
+
+Uninstall and revert changes via:
+
+```bash
+sudo ./install-ipfox.sh --uninstall
 ```
 
 ## License
