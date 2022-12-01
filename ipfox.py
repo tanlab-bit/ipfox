@@ -27,19 +27,12 @@ def send_an_email(email_content):  # email_content是一个字符串
 
 
 def get_ip():
-    # hostname = socket.gethostname()
-    # addr_infos = socket.getaddrinfo(hostname, None)
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    s.connect(("8.8.8.8", 80))
+    s.connect(("10.0.0.55", 80))
     res = s.getsockname()[0]
     print(res)
-    # ips = set([addr_info[-1][0] for addr_info in addr_infos])
-    # global_ips = [ip for ip in ips if ip.startswith("24")]
-    # print(global_ips)
-    # whether_to_send, send_ip = get_temp_ip(global_ips)
-    # send_ip = json.dumps(send_ip)
     send_ip = res
-    whether_to_send = True
+    whether_to_send = False
     return whether_to_send, send_ip
 
 

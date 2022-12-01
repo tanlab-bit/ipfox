@@ -1,7 +1,7 @@
 [Unit]
 
 # Human readable name of the unit
-Description=Automatic script to send device's current IP address on reboot.
+Description=Automatically send IP address on system reboot
 
 
 [Service]
