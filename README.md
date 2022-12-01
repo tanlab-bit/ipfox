@@ -25,6 +25,10 @@ We assume you have system-wide Python 3 installed to `/usr/bin/python3`.
 Install via script:
 
 ```bash
+# Make file executable if needed
+chmod +x install-ipfox.sh
+
+# Run the installer
 sudo ./install-ipfox.sh
 ```
 
