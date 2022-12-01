@@ -1,0 +1,20 @@
+; ipfox.ini - Default configuration file for ipfox.
+; Path: /usr/local/etc/ipfox/ipfox.ini
+; You should change all capitalized variables to suit your needs.
+
+[Connection]
+; Try performing socket connection to ... (We recommend 10.0.0.55)
+RemoteIP = REMOTE_IP_ADDR
+RemotePort = 80
+
+[Email]
+; What's to be sent in the email?
+Hostname = SERVER_NAME
+Subject = ipfox - IP address changed for %(hostname)s
+
+; SMTP server host and user, you send email from this address
+SenderHost = mail.bit.edu.cn
+SenderUser = EMAIL_ADDR_SENDER
+
+; A comma separated list of email addresses to receive the email
+ReceiverList = EMAIL_ADDR_1,EMAIL_ADDR_2
