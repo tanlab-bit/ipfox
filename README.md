@@ -34,7 +34,17 @@ The script basically does the following:
 - Copies the Python script to `/usr/local/lib/` under directory `ipfox`.
 - Copies the sample configuration file to `/usr/local/etc/ipfox/` as `ipfox.ini.default`.
 
-Configure the service. Config directory is under `/usr/local/etc/ipfox/`. Copy sample configuration file to `ipfox.ini` and edit it to your needs. The service loads `/usr/local/etc/ipfox/ipfox.ini` by default.
+Configuration should be put under `/usr/local/etc/ipfox/`. So, copy sample configuration file to `ipfox.ini`:
+
+```bash
+sudo cp /usr/local/etc/ipfox/ipfox.ini.default /usr/local/etc/ipfox/ipfox.ini
+```
+
+And edit the configuration file to your needs.
+
+```bash
+sudo vim /usr/local/etc/ipfox/ipfox.ini
+```
 
 To enable and start the service:
 
