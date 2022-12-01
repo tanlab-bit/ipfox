@@ -31,6 +31,7 @@ SenderAuth = config['Email']['SenderAuth']
 ReceiverList1 = config['Email']['ReceiverList1']
 ReceiverList2 = config['Email']['ReceiverList2']
 
+
 def send_an_email(email_content):
     mail_host = SenderHost
     mail_user = SenderUser
