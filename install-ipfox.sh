@@ -52,7 +52,7 @@ chmod 644 /usr/local/lib/ipfox/ipfox.py
 # Create configuration directory and sample configuration file
 echo -e "\e[34m[-] Creating configuration directory at /usr/local/etc/ipfox\e[0m"
 mkdir -p /usr/local/etc/ipfox
-cp ipfox.ini.default /usr/local/etc/ipfox
+cp ipfox.default.ini /usr/local/etc/ipfox
 
 # Summary
 echo -e "\e[32m[*] Installation complete -\e[0m"
@@ -60,11 +60,11 @@ echo -e
 echo -e "    installed: /etc/systemd/system/ipfox.service"
 echo -e "    installed: /usr/local/lib/ipfox/ipfox.py"
 echo -e "    installed: /usr/local/etc/ipfox"
-echo -e "    installed: /usr/local/etc/ipfox/ipfox.ini.default"
+echo -e "    installed: /usr/local/etc/ipfox/ipfox.default.ini"
 # echo -e "installed: ipfox log file: /var/log/ipfox.log"
 echo -e
 
-echo -e "\e[1;31m[!] Copy /usr/local/etc/ipfox/ipfox.ini.default to ipfox.ini, then edit\e[0m"
+echo -e "\e[1;31m[!] Copy /usr/local/etc/ipfox/ipfox.default.ini to ipfox.ini, then edit\e[0m"
 echo -e "\e[32m[*] Enable and start service with -\e[0m"
 echo -e
 echo -e "    sudo systemctl enable ipfox"

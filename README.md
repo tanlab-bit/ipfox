@@ -12,7 +12,7 @@ We follow the Filesystem Hierarchy Standard (FHS) spec:
     installed: /etc/systemd/system/ipfox.service
     installed: /usr/local/lib/ipfox/ipfox.py
     installed: /usr/local/etc/ipfox
-    installed: /usr/local/etc/ipfox/ipfox.ini.default
+    installed: /usr/local/etc/ipfox/ipfox.default.ini
 ```
 
 ## Runtimes
@@ -35,12 +35,12 @@ The script basically does the following:
 
 - Copies the Unit file to `/etc/systemd/system/`.
 - Copies the Python script to `/usr/local/lib/` under directory `ipfox`.
-- Copies the sample configuration file to `/usr/local/etc/ipfox/` as `ipfox.ini.default`.
+- Copies the sample configuration file to `/usr/local/etc/ipfox/` as `ipfox.default.ini`.
 
 Configuration should be put under `/usr/local/etc/ipfox/`. So, copy sample configuration file to `ipfox.ini`:
 
 ```bash
-sudo cp /usr/local/etc/ipfox/ipfox.ini.default /usr/local/etc/ipfox/ipfox.ini
+sudo cp /usr/local/etc/ipfox/ipfox.default.ini /usr/local/etc/ipfox/ipfox.ini
 ```
 
 And edit the configuration file to your needs.
