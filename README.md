@@ -21,7 +21,17 @@ We assume you have system-wide Python 3 installed to `/usr/bin/python3`.
 
 ## Usage
 
-Clone the repo on your Linux server. Install via script:
+Clone the repo locally:
+
+```bash
+# via github source
+git clone https://github.com/daisylab-bit/ipfox.git
+
+# ... or from gitee mirror
+git clone https://gitee.com/daisylab-bit/ipfox.git
+```
+
+Install via script:
 
 ```bash
 # Make file executable if needed
