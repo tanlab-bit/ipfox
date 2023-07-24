@@ -1,19 +1,16 @@
-[tool.poetry]
+[project]
 name = "ipfox"
-version = "0.1.0"
+version = "0.2.0"
 description = "Automatically send IP address on server reboot."
-authors = ["spencerwooo <spencer.woo@outlook.com>"]
-license = "MIT"
+authors = [{ name = "spencerwooo", email = "spencer.woo@outlook.com" }]
+requires-python = ">=3.7"
 readme = "README.md"
-
-[tool.poetry.dependencies]
-python = "^3.7"
-
-[tool.poetry.group.dev.dependencies]
-black = "^22.10.0"
-ruff = "^0.0.149"
-isort = "^5.10.1"
+license = { text = "MIT" }
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+line-length = 88
+select = ["E", "F", "I", "N", "B", "SIM"]
